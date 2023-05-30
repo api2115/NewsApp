@@ -68,6 +68,14 @@ class NewsTile: UIView {
         layer.cornerRadius = 20
         layer.shadowOpacity = 0.1
         layer.shadowRadius = 10
+        
+        
+        
+//        imageView.isUserInteractionEnabled = true
+//        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(showDetailedView))
+//        imageView.addGestureRecognizer(tapGestureRecognizer)
+        
+        
         self.setUpUI()
     }
     
@@ -124,5 +132,9 @@ class NewsTile: UIView {
         ])
         
     }
+    
+//    @objc private func showDetailedView() {
+//        delegate?.passData(data: item)
+//    }
     
 }

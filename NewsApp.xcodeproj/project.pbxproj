@@ -34,6 +34,14 @@
 		3B2D7BB92A251A2F00741002 /* DataDelegateProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2D7BB82A251A2F00741002 /* DataDelegateProtocol.swift */; };
 		3B2D7BBB2A2530BE00741002 /* TopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2D7BBA2A2530BE00741002 /* TopView.swift */; };
 		3B2D7BBE2A25EC2F00741002 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 3B2D7BBD2A25EC2F00741002 /* Alamofire */; };
+		3B2D7BC12A262BA400741002 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2D7BC02A262BA400741002 /* FeedViewController.swift */; };
+		3B2D7BC32A262BB800741002 /* FeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2D7BC22A262BB800741002 /* FeedViewModel.swift */; };
+		3B2D7BC62A262BF600741002 /* MyFeedNews+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2D7BC42A262BF600741002 /* MyFeedNews+CoreDataClass.swift */; };
+		3B2D7BC72A262BF600741002 /* MyFeedNews+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2D7BC52A262BF600741002 /* MyFeedNews+CoreDataProperties.swift */; };
+		3B2D7BCA2A262C9900741002 /* FeedManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2D7BC92A262C9900741002 /* FeedManager.swift */; };
+		3B2D7BCD2A2633A000741002 /* FeedViewController+Tablefunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2D7BCC2A2633A000741002 /* FeedViewController+Tablefunctions.swift */; };
+		3B2D7BCF2A26356200741002 /* FeedViewController+actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2D7BCE2A26356200741002 /* FeedViewController+actions.swift */; };
+		3B2D7BD22A2635FF00741002 /* FeedHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2D7BD12A2635FF00741002 /* FeedHeaderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +72,14 @@
 		3B2D7BB62A25113600741002 /* DetailedViewController+Actions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DetailedViewController+Actions.swift"; sourceTree = "<group>"; };
 		3B2D7BB82A251A2F00741002 /* DataDelegateProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataDelegateProtocol.swift; sourceTree = "<group>"; };
 		3B2D7BBA2A2530BE00741002 /* TopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopView.swift; sourceTree = "<group>"; };
+		3B2D7BC02A262BA400741002 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
+		3B2D7BC22A262BB800741002 /* FeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewModel.swift; sourceTree = "<group>"; };
+		3B2D7BC42A262BF600741002 /* MyFeedNews+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MyFeedNews+CoreDataClass.swift"; sourceTree = "<group>"; };
+		3B2D7BC52A262BF600741002 /* MyFeedNews+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MyFeedNews+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		3B2D7BC92A262C9900741002 /* FeedManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedManager.swift; sourceTree = "<group>"; };
+		3B2D7BCC2A2633A000741002 /* FeedViewController+Tablefunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FeedViewController+Tablefunctions.swift"; sourceTree = "<group>"; };
+		3B2D7BCE2A26356200741002 /* FeedViewController+actions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FeedViewController+actions.swift"; sourceTree = "<group>"; };
+		3B2D7BD12A2635FF00741002 /* FeedHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedHeaderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +164,7 @@
 		3B2D7B892A1F8DC200741002 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				3B2D7BBF2A262B8900741002 /* MyFeedView */,
 				3B2D7BB02A250C8300741002 /* DetailedView */,
 				3B2D7B8A2A1F8DDE00741002 /* MainView */,
 			);
@@ -191,6 +208,7 @@
 		3B2D7B912A1F9AB700741002 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				3B2D7BC82A262C1300741002 /* MyFeedItem */,
 				3B2D7B922A1F9AC700741002 /* News.swift */,
 				3B2D7B942A1F9ED800741002 /* NewsError.swift */,
 			);
@@ -222,6 +240,44 @@
 				3B2D7BB62A25113600741002 /* DetailedViewController+Actions.swift */,
 			);
 			path = Actions;
+			sourceTree = "<group>";
+		};
+		3B2D7BBF2A262B8900741002 /* MyFeedView */ = {
+			isa = PBXGroup;
+			children = (
+				3B2D7BD02A2635E700741002 /* UIElements */,
+				3B2D7BCB2A26338000741002 /* Actions */,
+				3B2D7BC02A262BA400741002 /* FeedViewController.swift */,
+				3B2D7BC22A262BB800741002 /* FeedViewModel.swift */,
+			);
+			path = MyFeedView;
+			sourceTree = "<group>";
+		};
+		3B2D7BC82A262C1300741002 /* MyFeedItem */ = {
+			isa = PBXGroup;
+			children = (
+				3B2D7BC42A262BF600741002 /* MyFeedNews+CoreDataClass.swift */,
+				3B2D7BC52A262BF600741002 /* MyFeedNews+CoreDataProperties.swift */,
+				3B2D7BC92A262C9900741002 /* FeedManager.swift */,
+			);
+			path = MyFeedItem;
+			sourceTree = "<group>";
+		};
+		3B2D7BCB2A26338000741002 /* Actions */ = {
+			isa = PBXGroup;
+			children = (
+				3B2D7BCC2A2633A000741002 /* FeedViewController+Tablefunctions.swift */,
+				3B2D7BCE2A26356200741002 /* FeedViewController+actions.swift */,
+			);
+			path = Actions;
+			sourceTree = "<group>";
+		};
+		3B2D7BD02A2635E700741002 /* UIElements */ = {
+			isa = PBXGroup;
+			children = (
+				3B2D7BD12A2635FF00741002 /* FeedHeaderView.swift */,
+			);
+			path = UIElements;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -302,7 +358,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B2D7BC32A262BB800741002 /* FeedViewModel.swift in Sources */,
 				3B2D7B9A2A1FAA4300741002 /* MainViewController+actions.swift in Sources */,
+				3B2D7BC62A262BF600741002 /* MyFeedNews+CoreDataClass.swift in Sources */,
 				3B2D7B8D2A1F8E0E00741002 /* MainViewModel.swift in Sources */,
 				3B2D7BB22A250CAD00741002 /* DetailedViewController.swift in Sources */,
 				3B2D7B982A1FA92B00741002 /* NewsCell.swift in Sources */,
@@ -318,13 +376,19 @@
 				3B2D7BAD2A24E50400741002 /* CategoryScroll.swift in Sources */,
 				3B2D7B792A1F8C8C00741002 /* NewsApp.xcdatamodeld in Sources */,
 				3B2D7B932A1F9AC700741002 /* News.swift in Sources */,
+				3B2D7BC72A262BF600741002 /* MyFeedNews+CoreDataProperties.swift in Sources */,
 				3B2D7B712A1F8C8C00741002 /* SceneDelegate.swift in Sources */,
 				3B2D7BA72A20C12F00741002 /* MainHeaderView.swift in Sources */,
 				3B2D7BA22A1FB5C700741002 /* NewsService.swift in Sources */,
+				3B2D7BCD2A2633A000741002 /* FeedViewController+Tablefunctions.swift in Sources */,
 				3B2D7BA92A20D7D500741002 /* TopNewsView.swift in Sources */,
 				3B2D7B9E2A1FACD700741002 /* HTTP.swift in Sources */,
 				3B2D7B9C2A1FAA7C00741002 /* MainViewController+tableActions.swift in Sources */,
+				3B2D7BC12A262BA400741002 /* FeedViewController.swift in Sources */,
+				3B2D7BD22A2635FF00741002 /* FeedHeaderView.swift in Sources */,
 				3B2D7B902A1F8ED000741002 /* Constants.swift in Sources */,
+				3B2D7BCF2A26356200741002 /* FeedViewController+actions.swift in Sources */,
+				3B2D7BCA2A262C9900741002 /* FeedManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

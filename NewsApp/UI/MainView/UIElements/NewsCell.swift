@@ -12,7 +12,6 @@ class NewsCell: UITableViewCell {
 
     //MARK: - Variables
     static let identifier = "NewsCell"
-    private(set) var news: News!
     
     //MARK: - UI Elements
     lazy var leftImageView = UIImageView()
@@ -41,13 +40,12 @@ class NewsCell: UITableViewCell {
     
     //MARK: - UI setup
     func configure(with news: News) {
-        self.news = news
         cellTitle.textColor = .black
-        cellTitle.text = self.news.title
+        cellTitle.text = news.title
         cellTitle.font = UIFont.boldSystemFont(ofSize: 16)
         cellTitle.numberOfLines = 0
         
-        let imageURL = URL(string: self.news.urlToImage ?? "https://static.remove.bg/sample-gallery/graphics/bird-thumbnail.jpg")
+        let imageURL = URL(string: news.urlToImage ?? "https://static.remove.bg/sample-gallery/graphics/bird-thumbnail.jpg")
         self.leftImageView.sd_setImage(with: imageURL)
         
         self.leftImageView.layer.cornerRadius = 20
@@ -57,7 +55,31 @@ class NewsCell: UITableViewCell {
         let dateFormatter = DateFormatter()
         dateFormatter.locale = Locale(identifier: "en_US_POSIX")
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
-        let date = dateFormatter.date(from: self.news.publishedAt ?? "1970-01-01T01:01:01Z")
+        let date = dateFormatter.date(from: news.publishedAt ?? "1970-01-01T01:01:01Z")
+        dateFormatter.dateFormat = "dd MMM yyyy"
+        dateLabel.text = dateFormatter.string(from: date!)
+        dateLabel.font = UIFont.boldSystemFont(ofSize: 14)
+        
+        setUpUI()
+    }
+    
+    func configure(with news: MyFeedNews) {
+        cellTitle.textColor = .black
+        cellTitle.text = news.title
+        cellTitle.font = UIFont.boldSystemFont(ofSize: 16)
+        cellTitle.numberOfLines = 0
+        
+        let imageURL = URL(string: news.urlToImage ?? "https://static.remove.bg/sample-gallery/graphics/bird-thumbnail.jpg")
+        self.leftImageView.sd_setImage(with: imageURL)
+        
+        self.leftImageView.layer.cornerRadius = 20
+        self.leftImageView.clipsToBounds = true
+        
+        dateLabel.textColor = .gray
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+        let date = dateFormatter.date(from: news.publishedAt ?? "1970-01-01T01:01:01Z")
         dateFormatter.dateFormat = "dd MMM yyyy"
         dateLabel.text = dateFormatter.string(from: date!)
         dateLabel.font = UIFont.boldSystemFont(ofSize: 14)

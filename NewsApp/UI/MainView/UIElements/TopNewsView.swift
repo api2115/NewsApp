@@ -65,6 +65,7 @@ class TopNewsView: UIView {
             stackView.removeArrangedSubview(arrangedSubview)
             arrangedSubview.removeFromSuperview()
         }
+        
         for item in dataSource {
             let tile = NewsTile(item)
             tile.translatesAutoresizingMaskIntoConstraints = false
@@ -82,8 +83,18 @@ class TopNewsView: UIView {
         guard let view = sender.view as? NewsTile else {
             return
         }
+        let tapLocation = sender.location(in: view)
         let news = view.item
-        delegate?.passData(data: news)
+        if view.imageView.frame.contains(tapLocation) {
+            delegate?.passData(data: news, id: 1)
+        }
+        if view.heartIcon.frame.contains(tapLocation){
+            delegate?.passData(data: news, id: 2)
+            view.heartIcon.image = UIImage(systemName: "heart.fill")
+        }
+        
+        
+        
     }
     
     

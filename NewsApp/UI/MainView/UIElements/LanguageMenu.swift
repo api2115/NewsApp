@@ -51,8 +51,11 @@ extension LanguageMenu: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        cell.textLabel?.text = languages[indexPath.row]
+        let lang = languages[indexPath.row]
+        cell.textLabel?.text = lang
         cell.textLabel?.textColor = .black
+        let imageURL = URL(string: "https://flagsapi.com/\(lang.uppercased())/flat/32.png")
+        cell.imageView?.sd_setImage(with: imageURL)
         cell.backgroundColor = UIColor(named: "DefaultColor")
         return cell
     }

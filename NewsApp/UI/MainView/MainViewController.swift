@@ -11,6 +11,7 @@ class MainViewController: UIViewController {
     
     // MARK: - Variables
     let viewModel: MainViewModel
+    let feedViewModel = FeedViewModel()
     
     //MARK: - UI Components
     lazy var tableView: UITableView = {
@@ -20,6 +21,8 @@ class MainViewController: UIViewController {
         tv.register(NewsCell.self, forCellReuseIdentifier: NewsCell.identifier)
         return tv
     }()
+    
+    let refreshControl = UIRefreshControl()
 
     lazy var headerView = MainHeaderView()
     lazy var categoryScroll = CategoryScroll(viewModel)
@@ -41,15 +44,21 @@ class MainViewController: UIViewController {
         
         self.tableView.delegate = self
         self.tableView.dataSource = self
+        
         topView.horizontalScrol.delegate = self
         
         self.setUpUI()
         
         self.tableView.tableHeaderView = topView
         
+        self.tableView.addSubview(refreshControl)
+        refreshControl.tintColor = .red
+        refreshControl.addTarget(self, action: #selector(refreshData), for: .valueChanged)
+        
         self.setUpModelOutput()
         
         headerView.languageButton.addTarget(self, action: #selector(showLanguageMenu), for: .touchUpInside)
+        headerView.myFeedButton.addTarget(self, action: #selector(showMyFeed), for: .touchUpInside)
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTapOutsideLangMenu(_:)))
         tapGesture.cancelsTouchesInView = false

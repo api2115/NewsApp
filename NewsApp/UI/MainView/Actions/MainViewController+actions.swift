@@ -9,15 +9,25 @@ import UIKit
 
 extension MainViewController: DataDelegateProtocol {
     //MARK: - Protocol
-    func passData(data: News) {
-        let vc = DetailedViewController(data)
-        vc.modalPresentationStyle = .fullScreen
-        self.present(vc, animated: true, completion: nil)
+    func passData(data: News, id: Int) {
+        if id == 1{
+            let vc = DetailedViewController(data)
+            vc.modalPresentationStyle = .fullScreen
+            self.present(vc, animated: true, completion: nil)
+        } else {
+            feedViewModel.input?.addNews(data)
+        }
     }
     
     //MARK: - Button Functions
     @objc func showLanguageMenu() {
         setUpLanguageMenu()
+    }
+    
+    @objc func showMyFeed() {
+        let vc = FeedViewController(feedViewModel)
+        vc.modalPresentationStyle = .fullScreen
+        self.present(vc, animated: true, completion: nil)
     }
     
     @objc func handleTapOutsideLangMenu(_ gestureRecognizer: UITapGestureRecognizer) {
@@ -28,25 +38,16 @@ extension MainViewController: DataDelegateProtocol {
         }
     }
     
+    @objc func refreshData() {
+        self.viewModel.fetchNews(category: self.viewModel.selectedCategory, language: self.viewModel.selectedLanguage)
+        refreshControl.endRefreshing()
+    }
+    
     //MARK: - Miscellaneous
     func addToView(_ element: UIView) {
         self.view.addSubview(element)
         element.translatesAutoresizingMaskIntoConstraints = false
     }
     
-    func getImageFromURL(url: URL, completion: @escaping (UIImage?) -> Void) {
-        DispatchQueue.global().async {
-            if let data = try? Data(contentsOf: url),
-               let image = UIImage(data: data) {
-                DispatchQueue.main.async {
-                    completion(image)
-                }
-            } else {
-                DispatchQueue.main.async {
-                    completion(nil)
-                }
-            }
-        }
-    }
 }
 

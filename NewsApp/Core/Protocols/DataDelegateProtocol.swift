@@ -8,5 +8,5 @@
 import Foundation
 
 protocol DataDelegateProtocol: AnyObject {
-    func passData(data: News)
+    func passData(data: News, id: Int)
 }

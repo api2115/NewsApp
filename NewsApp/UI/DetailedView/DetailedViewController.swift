@@ -43,10 +43,18 @@ class DetailedViewController: UIViewController {
         return label
     }()
     
-    let news: News
-    //MARK: - Initializer
+    //MARK: - Initializer for mainView
     init(_ news: News) {
-        self.news = news
+        let imageURL = URL(string: news.urlToImage ?? "https://static.remove.bg/sample-gallery/graphics/bird-thumbnail.jpg")
+        self.coverImage.sd_setImage(with: imageURL)
+        
+        titleLabel.text = news.title
+        contentLabel.text = news.content
+        
+        super.init(nibName: nil, bundle: nil)
+    }
+    //MARK: - Initializer for myFeed
+    init(_ news: MyFeedNews) {
         let imageURL = URL(string: news.urlToImage ?? "https://static.remove.bg/sample-gallery/graphics/bird-thumbnail.jpg")
         self.coverImage.sd_setImage(with: imageURL)
         
