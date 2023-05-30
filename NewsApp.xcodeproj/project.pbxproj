@@ -33,6 +33,7 @@
 		3B2D7BB72A25113600741002 /* DetailedViewController+Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2D7BB62A25113600741002 /* DetailedViewController+Actions.swift */; };
 		3B2D7BB92A251A2F00741002 /* DataDelegateProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2D7BB82A251A2F00741002 /* DataDelegateProtocol.swift */; };
 		3B2D7BBB2A2530BE00741002 /* TopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2D7BBA2A2530BE00741002 /* TopView.swift */; };
+		3B2D7BBE2A25EC2F00741002 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 3B2D7BBD2A25EC2F00741002 /* Alamofire */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -71,6 +72,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3B2D7BA52A20BE2200741002 /* SDWebImage in Frameworks */,
+				3B2D7BBE2A25EC2F00741002 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -240,6 +242,7 @@
 			name = NewsApp;
 			packageProductDependencies = (
 				3B2D7BA42A20BE2200741002 /* SDWebImage */,
+				3B2D7BBD2A25EC2F00741002 /* Alamofire */,
 			);
 			productName = NewsApp;
 			productReference = 3B2D7B6B2A1F8C8C00741002 /* NewsApp.app */;
@@ -271,6 +274,7 @@
 			mainGroup = 3B2D7B622A1F8C8C00741002;
 			packageReferences = (
 				3B2D7BA32A20BE2200741002 /* XCRemoteSwiftPackageReference "SDWebImage" */,
+				3B2D7BBC2A25EC2F00741002 /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			productRefGroup = 3B2D7B6C2A1F8C8C00741002 /* Products */;
 			projectDirPath = "";
@@ -536,6 +540,14 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		3B2D7BBC2A25EC2F00741002 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -543,6 +555,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 3B2D7BA32A20BE2200741002 /* XCRemoteSwiftPackageReference "SDWebImage" */;
 			productName = SDWebImage;
+		};
+		3B2D7BBD2A25EC2F00741002 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3B2D7BBC2A25EC2F00741002 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
 		};
 /* End XCSwiftPackageProductDependency section */
 
