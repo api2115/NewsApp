@@ -46,6 +46,34 @@ class FeedManager {
         }
     }
     
+    func createItem(news: MyFeedNews) {
+        let item = MyFeedNews(context: context)
+        item.author = news.author
+        item.content = news.content
+        item.desc = news.description
+        item.publishedAt = news.publishedAt
+        item.title = news.title
+        item.urlToImage = news.urlToImage
+        do {
+            try context.save()
+        }
+        catch {
+            print(error)
+        }
+    }
+    
+    
+    func deleteItem(item: News) {
+        if let feedNews = getAllItems().first(where: {$0.title == item.title}){
+            context.delete(feedNews)
+            do {
+                try context.save()
+            }
+            catch {
+                print(error)
+            }
+        }
+    }
     
     func deleteItem(item: MyFeedNews) {
         context.delete(item)

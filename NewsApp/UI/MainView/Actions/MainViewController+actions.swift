@@ -7,15 +7,23 @@
 
 import UIKit
 
-extension MainViewController: DataDelegateProtocol {
+extension MainViewController: DataDelegateProtocol, DismissViewDelegateProtocol {
+    
     //MARK: - Protocol
+    func didDismiss() {
+        self.topView.horizontalScrol.dataSource = Array(self.viewModel.news.prefix(4))
+    }
+    
     func passData(data: News, id: Int) {
-        if id == 1{
+        if id == 1 {
             let vc = DetailedViewController(data)
             vc.modalPresentationStyle = .fullScreen
+            vc.delegate = self
             self.present(vc, animated: true, completion: nil)
-        } else {
+        } else if id == 2 {
             feedViewModel.input?.addNews(data)
+        } else if id == 3 {
+            feedViewModel.deleteFeedNews(news: data)
         }
     }
     
@@ -27,6 +35,7 @@ extension MainViewController: DataDelegateProtocol {
     @objc func showMyFeed() {
         let vc = FeedViewController(feedViewModel)
         vc.modalPresentationStyle = .fullScreen
+        vc.delegate = self
         self.present(vc, animated: true, completion: nil)
     }
     

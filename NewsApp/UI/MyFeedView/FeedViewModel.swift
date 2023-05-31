@@ -12,6 +12,7 @@ class FeedViewModel {
     //MARK: - Input
     struct Input {
         let addNews: ((News)->Void)
+        let addFeedNews: ((MyFeedNews)->Void)
     }
     //MARK: - Output
     struct Output {
@@ -39,6 +40,9 @@ class FeedViewModel {
         input = .init(
             addNews: { [weak self] News in
                 self?.addToFeed(news: News)
+            },
+            addFeedNews: { [weak self] MyFeedNews in
+                self?.addToFeed(news: MyFeedNews)
             }
         )
     }
@@ -47,8 +51,23 @@ class FeedViewModel {
         FeedManager.shared.createItem(news: news)
     }
     
+    private func addToFeed(news: MyFeedNews) {
+        FeedManager.shared.createItem(news: news)
+    }
+    
     public func fetchFeed() {
         self.feedNews = FeedManager.shared.getAllItems()
     }
+    
+    public func deleteFeedNews(news: News) {
+        FeedManager.shared.deleteItem(item: news)
+        fetchFeed()
+    }
+    
+    public func deleteFeedNews(news: MyFeedNews) {
+        FeedManager.shared.deleteItem(item: news)
+        fetchFeed()
+    }
+    
     
 }

@@ -9,6 +9,8 @@ import UIKit
 
 class FeedViewController: UIViewController {
     
+    weak var delegate: DismissViewDelegateProtocol?
+    
     lazy var tableView: UITableView = {
         let tv = UITableView()
         tv.backgroundColor = .clear

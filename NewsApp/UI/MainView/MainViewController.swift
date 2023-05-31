@@ -60,6 +60,8 @@ class MainViewController: UIViewController {
         headerView.languageButton.addTarget(self, action: #selector(showLanguageMenu), for: .touchUpInside)
         headerView.myFeedButton.addTarget(self, action: #selector(showMyFeed), for: .touchUpInside)
         
+        
+        
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTapOutsideLangMenu(_:)))
         tapGesture.cancelsTouchesInView = false
         self.view.addGestureRecognizer(tapGesture)

@@ -89,8 +89,13 @@ class TopNewsView: UIView {
             delegate?.passData(data: news, id: 1)
         }
         if view.heartIcon.frame.contains(tapLocation){
-            delegate?.passData(data: news, id: 2)
-            view.heartIcon.image = UIImage(systemName: "heart.fill")
+            if view.heartIcon.image == UIImage(systemName: "heart.fill") {
+                delegate?.passData(data: news, id: 3)
+                view.heartIcon.image = UIImage(systemName: "heart")
+            } else {
+                delegate?.passData(data: news, id: 2)
+                view.heartIcon.image = UIImage(systemName: "heart.fill")
+            }
         }
         
         

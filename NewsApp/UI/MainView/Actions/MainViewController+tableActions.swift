@@ -60,6 +60,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
         let news = self.viewModel.news[indexPath.section+4]
         let vc = DetailedViewController(news)
         vc.modalPresentationStyle = .fullScreen
+        vc.delegate = self
         self.present(vc, animated: true, completion: nil)
     }
     

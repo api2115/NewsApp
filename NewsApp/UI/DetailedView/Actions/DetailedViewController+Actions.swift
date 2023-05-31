@@ -13,6 +13,25 @@ extension DetailedViewController {
         dismiss(animated: true, completion: nil)
     }
     
+    @objc func handleHeartIconTap() {
+        if heartIcon.image == UIImage(systemName: "heart.fill") {
+            if news != nil {
+                delegate?.passData(data: news!, id: 3)
+                heartIcon.image = UIImage(systemName: "heart")
+            } else {
+                delegate?.passData(data: feedNews!, id: 3)
+                heartIcon.removeFromSuperview()
+            }
+        } else {
+            if news != nil {
+                delegate?.passData(data: news!, id: 2)
+            } else {
+                delegate?.passData(data: feedNews!, id: 2)
+            }
+            heartIcon.image = UIImage(systemName: "heart.fill")
+        }
+    }
+    
     //MARK: - Miscellaneous
     
     func addToView(_ element: UIView) {

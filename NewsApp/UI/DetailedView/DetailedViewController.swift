@@ -8,6 +8,7 @@
 import UIKit
 
 class DetailedViewController: UIViewController {
+    weak var delegate: DataDelegateProtocol?
     
     //MARK: - UIElements
     
@@ -43,18 +44,32 @@ class DetailedViewController: UIViewController {
         return label
     }()
     
+    let heartIcon: UIImageView = {
+        let iv = UIImageView()
+        iv.image = UIImage(systemName: "heart")
+        iv.tintColor = .red
+        return iv
+    }()
+    var news: News?
     //MARK: - Initializer for mainView
     init(_ news: News) {
+        self.news = news
         let imageURL = URL(string: news.urlToImage ?? "https://static.remove.bg/sample-gallery/graphics/bird-thumbnail.jpg")
         self.coverImage.sd_setImage(with: imageURL)
         
         titleLabel.text = news.title
         contentLabel.text = news.content
-        
         super.init(nibName: nil, bundle: nil)
+        
+        if checkIfNewsInMyFeed(item: news) {
+            heartIcon.image = UIImage(systemName: "heart.fill")
+            heartIcon.tintColor = .red
+        }
     }
+    var feedNews: MyFeedNews?
     //MARK: - Initializer for myFeed
     init(_ news: MyFeedNews) {
+        self.feedNews = news
         let imageURL = URL(string: news.urlToImage ?? "https://static.remove.bg/sample-gallery/graphics/bird-thumbnail.jpg")
         self.coverImage.sd_setImage(with: imageURL)
         
@@ -62,6 +77,9 @@ class DetailedViewController: UIViewController {
         contentLabel.text = news.content
         
         super.init(nibName: nil, bundle: nil)
+        
+        heartIcon.image = UIImage(systemName: "heart.fill")
+        heartIcon.tintColor = .red
     }
     
     required init?(coder: NSCoder) {
@@ -75,8 +93,9 @@ class DetailedViewController: UIViewController {
         setUpUI()
         
         backButton.addTarget(self, action: #selector(backButtonTap), for: .touchUpInside)
-        
-        
+        heartIcon.isUserInteractionEnabled = true
+        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleHeartIconTap))
+        heartIcon.addGestureRecognizer(gestureRecognizer)
     }
     
     //MARK: - SetUpFunctions
@@ -87,6 +106,7 @@ class DetailedViewController: UIViewController {
         addToView(backButton)
         addToView(titleLabel)
         addToView(contentLabel)
+        addToView(heartIcon)
         
         NSLayoutConstraint.activate([
             coverImage.topAnchor.constraint(equalTo: self.view.topAnchor),
@@ -102,11 +122,16 @@ class DetailedViewController: UIViewController {
             
             contentLabel.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 15),
             contentLabel.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -15),
-            contentLabel.topAnchor.constraint(equalTo: coverImage.bottomAnchor, constant: 30)
+            contentLabel.topAnchor.constraint(equalTo: coverImage.bottomAnchor, constant: 30),
+            
+            heartIcon.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -15),
+            heartIcon.centerYAnchor.constraint(equalTo: backButton.centerYAnchor)
             
         ])
     }
     
-
+    private func checkIfNewsInMyFeed(item: News) -> Bool {
+        return FeedManager.shared.getAllItems().contains { $0.title == item.title}
+    }
     
 }

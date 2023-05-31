@@ -69,11 +69,10 @@ class NewsTile: UIView {
         layer.shadowOpacity = 0.1
         layer.shadowRadius = 10
         
-        
-        
-//        imageView.isUserInteractionEnabled = true
-//        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(showDetailedView))
-//        imageView.addGestureRecognizer(tapGestureRecognizer)
+        if checkIfNewsInMyFeed(item: item) {
+            heartIcon.image = UIImage(systemName: "heart.fill")
+            heartIcon.tintColor = .red
+        }
         
         
         self.setUpUI()
@@ -133,8 +132,9 @@ class NewsTile: UIView {
         
     }
     
-//    @objc private func showDetailedView() {
-//        delegate?.passData(data: item)
-//    }
+
+    private func checkIfNewsInMyFeed(item: News) -> Bool {
+        return FeedManager.shared.getAllItems().contains { $0.title == item.title}
+    }
     
 }
