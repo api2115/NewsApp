@@ -43,6 +43,7 @@
 		3B2D7BCF2A26356200741002 /* FeedViewController+actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2D7BCE2A26356200741002 /* FeedViewController+actions.swift */; };
 		3B2D7BD22A2635FF00741002 /* FeedHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2D7BD12A2635FF00741002 /* FeedHeaderView.swift */; };
 		3B2D7BD62A277EC900741002 /* DismissViewDelegateProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2D7BD52A277EC900741002 /* DismissViewDelegateProtocol.swift */; };
+		3B2D7BD82A2794BD00741002 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2D7BD72A2794BD00741002 /* APIService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -82,6 +83,7 @@
 		3B2D7BCE2A26356200741002 /* FeedViewController+actions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FeedViewController+actions.swift"; sourceTree = "<group>"; };
 		3B2D7BD12A2635FF00741002 /* FeedHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedHeaderView.swift; sourceTree = "<group>"; };
 		3B2D7BD52A277EC900741002 /* DismissViewDelegateProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissViewDelegateProtocol.swift; sourceTree = "<group>"; };
+		3B2D7BD72A2794BD00741002 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -224,6 +226,7 @@
 				3B2D7B9D2A1FACD700741002 /* HTTP.swift */,
 				3B2D7B9F2A1FAE3400741002 /* Endpoint.swift */,
 				3B2D7BA12A1FB5C700741002 /* NewsService.swift */,
+				3B2D7BD72A2794BD00741002 /* APIService.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -365,6 +368,7 @@
 				3B2D7BC32A262BB800741002 /* FeedViewModel.swift in Sources */,
 				3B2D7B9A2A1FAA4300741002 /* MainViewController+actions.swift in Sources */,
 				3B2D7BC62A262BF600741002 /* MyFeedNews+CoreDataClass.swift in Sources */,
+				3B2D7BD82A2794BD00741002 /* APIService.swift in Sources */,
 				3B2D7B8D2A1F8E0E00741002 /* MainViewModel.swift in Sources */,
 				3B2D7BB22A250CAD00741002 /* DetailedViewController.swift in Sources */,
 				3B2D7B982A1FA92B00741002 /* NewsCell.swift in Sources */,

@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct NewsArray: Decodable {
+struct NewsArray: Codable {
     let articles: [News]
 }
 

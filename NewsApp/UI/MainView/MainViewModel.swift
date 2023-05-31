@@ -15,6 +15,7 @@ class MainViewModel {
     }
     
     //MARK: - Variables
+    let service = APIService()
     var output: Output?
     private(set) var news: [News] = [] {
         didSet {
@@ -33,15 +34,14 @@ class MainViewModel {
     //MARK: - Methods
     public func fetchNews(category: String, language: String) {
         
-        let endpoint = Endpoint.fetchNews(url: "/v2/top-headlines", category: category, language: language)
+        let endpoint = Endpoint.fetchNews(url: "/v2/top-headlines", category: category, language: language).request!
         
-        NewsService.fetchNews(with: endpoint) { [weak self] result in
-            switch result {
-            case .success(let news):
-                self?.news = news
-            case .failure(let error):
-                self?.output?.onErrorMessage?(error)
+        self.service.makeRequest(with: endpoint) { (news: NewsArray?, error) in
+            if let error = error {
+                print(error)
+                return
             }
+            self.news = news?.articles ?? []
         }
         
     }
