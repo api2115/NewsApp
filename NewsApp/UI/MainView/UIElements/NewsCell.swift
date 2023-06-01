@@ -109,8 +109,6 @@ class NewsCell: UITableViewCell {
         layer.cornerRadius = 20
         layer.shadowOpacity = 0.05
         layer.shadowRadius = 10
-
-        
         
         contentView.addSubview(leftImageView)
         leftImageView.translatesAutoresizingMaskIntoConstraints = false

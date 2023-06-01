@@ -21,11 +21,7 @@ class DetailedViewController: UIViewController {
         return button
     }()
     
-    let coverImage: UIImageView = {
-        let iv = UIImageView()
-        
-        return iv
-    }()
+    let coverImage = UIImageView()
     
     let titleLabel: UILabel = {
         let label = UILabel()
