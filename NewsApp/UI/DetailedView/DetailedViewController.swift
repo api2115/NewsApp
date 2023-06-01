@@ -8,6 +8,7 @@
 import UIKit
 
 class DetailedViewController: UIViewController {
+    //MARK: - Protocol
     weak var delegate: DataDelegateProtocol?
     
     //MARK: - UIElements
@@ -103,34 +104,10 @@ class DetailedViewController: UIViewController {
         addToView(contentLabel)
         addToView(heartIcon)
         
-        NSLayoutConstraint.activate([
-            coverImage.topAnchor.constraint(equalTo: self.view.topAnchor),
-            coverImage.widthAnchor.constraint(equalTo: self.view.widthAnchor),
-            coverImage.heightAnchor.constraint(equalTo: self.view.heightAnchor, multiplier: 0.4),
-            
-            backButton.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 50),
-            backButton.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 15),
-            
-            titleLabel.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 15),
-            titleLabel.bottomAnchor.constraint(equalTo: coverImage.bottomAnchor, constant: -30),
-            titleLabel.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -15),
-            
-            contentLabel.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 15),
-            contentLabel.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -15),
-            contentLabel.topAnchor.constraint(equalTo: coverImage.bottomAnchor, constant: 30),
-            
-            heartIcon.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -15),
-            heartIcon.centerYAnchor.constraint(equalTo: backButton.centerYAnchor)
-            
-        ])
+        NSLayoutConstraint.activate(makeDetailedViewConstraints())
     }
     
-    private func setUpTargets() {
-        backButton.addTarget(self, action: #selector(backButtonTap), for: .touchUpInside)
-        heartIcon.isUserInteractionEnabled = true
-        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleHeartIconTap))
-        heartIcon.addGestureRecognizer(gestureRecognizer)
-    }
+
     
     
 }

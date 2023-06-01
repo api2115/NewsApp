@@ -51,27 +51,7 @@ class FeedViewController: UIViewController {
         addToView(headerView)
         addToView(tableView)
         
-        NSLayoutConstraint.activate([
-            headerView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
-            headerView.topAnchor.constraint(equalTo: self.view.topAnchor),
-            headerView.heightAnchor.constraint(equalTo: self.view.heightAnchor, multiplier: 0.15),
-            headerView.widthAnchor.constraint(equalTo: self.view.widthAnchor),
-            
-            tableView.topAnchor.constraint(equalTo: headerView.bottomAnchor, constant: 20),
-            tableView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
-            tableView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 20),
-            tableView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -20),
-        ])
-    }
-
-    private func setUpModelOutput() {
-        self.viewModel.output = .init(
-            onNewsUpdated: { [weak self] in
-                DispatchQueue.main.async {
-                    self?.tableView.reloadData()
-                }
-            }
-        )
+        NSLayoutConstraint.activate(makeFeedViewContsraints())
     }
 
 }
