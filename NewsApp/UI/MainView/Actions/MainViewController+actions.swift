@@ -11,10 +11,10 @@ extension MainViewController: DataDelegateProtocol, DismissViewDelegateProtocol 
     
     //MARK: - Protocol
     func didDismiss() {
-        self.topView.horizontalScrol.dataSource = Array(self.viewModel.news.prefix(4))
+        self.topView.collectionView.reloadData()
     }
     
-    func passData(data: News, tapCase: tapCase) {
+    func passData(data: News, tapCase: TapCase) {
         switch tapCase {
         case .detailedViewTap:
             let vc = DetailedViewController(data)
@@ -83,9 +83,9 @@ extension MainViewController: DataDelegateProtocol, DismissViewDelegateProtocol 
         self.viewModel.output = .init(
             onNewsUpdated: { [weak self] in
                 DispatchQueue.main.async {
-                    if ((self?.viewModel.news) != nil) {
-                        self?.topView.horizontalScrol.dataSource = Array(self?.viewModel.news.prefix(4) ?? [])
-                    }
+//                    if ((self?.viewModel.news) != nil) {
+//                        self?.topView.horizontalScrol.dataSource = Array(self?.viewModel.news.prefix(4) ?? [])
+//                    }
                     self?.tableView.reloadData()
     //                let indexPath = IndexPath(row: 0, section: 0)
     //                self?.tableView.scrollToRow(at: indexPath, at: .top, animated: true)

@@ -9,12 +9,16 @@ import UIKit
 
 extension FeedViewController: DataDelegateProtocol {
     //MARK: - Protocol
-    func passData(data: MyFeedNews, id: Int) {
-        if id == 2 {
+    func passData(data: MyFeedNews, tapCase: TapCase) {
+        switch tapCase {
+        case .detailedViewTap:
+            print("How did you get here?")
+        case .addToFeed:
             viewModel.input?.addFeedNews(data)
-        } else if id == 3 {
+        case .removeFromFeed:
             viewModel.deleteFeedNews(news: data)
         }
+        
     }
     
     //MARK: - Data

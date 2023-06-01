@@ -27,7 +27,7 @@ class MainViewController: UIViewController {
     lazy var headerView = MainHeaderView()
     lazy var categoryScroll = CategoryScroll(viewModel)
     lazy var languageMenu = LanguageMenu(viewModel)
-    lazy var topView = TopView(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 250))
+    lazy var topView = TopView(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 250), viewModel: self.viewModel)
     
     //MARK: - Lifecycle
     init(_ viewModel: MainViewModel = MainViewModel()){
@@ -35,7 +35,7 @@ class MainViewController: UIViewController {
         super.init(nibName: nil, bundle: nil)
         self.tableView.delegate = self
         self.tableView.dataSource = self
-        topView.horizontalScrol.delegate = self
+        topView.delegate = self
         self.tableView.tableHeaderView = topView
         self.tableView.addSubview(refreshControl)
         refreshControl.tintColor = .red

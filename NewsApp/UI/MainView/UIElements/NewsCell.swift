@@ -61,15 +61,13 @@ class NewsCell: UITableViewCell {
                 self.leftImageView.clipsToBounds = true
 
                 dateLabel.textColor = .gray
-                let dateFormatter = DateFormatter()
-                dateFormatter.locale = Locale(identifier: "en_US_POSIX")
-                dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
-                let date = dateFormatter.date(from: data.publishedAt ?? "1970-01-01T01:01:01Z")
-                dateFormatter.dateFormat = "dd MMM yyyy"
-                dateLabel.text = dateFormatter.string(from: date!)
+                let publishedDateString = data.publishedAt ?? "1970-01-01T01:01:01Z"
+                dateLabel.text = publishedDateString.dateFormater()
                 dateLabel.font = UIFont.boldSystemFont(ofSize: 14)
 
                 setUpUI()
+                
+                
                 
             }
     }
@@ -95,12 +93,8 @@ class NewsCell: UITableViewCell {
                 self.leftImageView.clipsToBounds = true
 
                 dateLabel.textColor = .gray
-                let dateFormatter = DateFormatter()
-                dateFormatter.locale = Locale(identifier: "en_US_POSIX")
-                dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
-                let date = dateFormatter.date(from: data.publishedAt ?? "1970-01-01T01:01:01Z")
-                dateFormatter.dateFormat = "dd MMM yyyy"
-                dateLabel.text = dateFormatter.string(from: date!)
+                let publishedDateString = data.publishedAt ?? "1970-01-01T01:01:01Z"
+                dateLabel.text = publishedDateString.dateFormater()
                 dateLabel.font = UIFont.boldSystemFont(ofSize: 14)
 
                 setUpUI()

@@ -44,6 +44,8 @@
 		3B2D7BD22A2635FF00741002 /* FeedHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2D7BD12A2635FF00741002 /* FeedHeaderView.swift */; };
 		3B2D7BD62A277EC900741002 /* DismissViewDelegateProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2D7BD52A277EC900741002 /* DismissViewDelegateProtocol.swift */; };
 		3B2D7BD82A2794BD00741002 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2D7BD72A2794BD00741002 /* APIService.swift */; };
+		3B2D7BDB2A28BDD200741002 /* DateFormater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2D7BDA2A28BDD200741002 /* DateFormater.swift */; };
+		3B2D7BDD2A28C28500741002 /* HorizontalNewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2D7BDC2A28C28500741002 /* HorizontalNewsCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -84,6 +86,8 @@
 		3B2D7BD12A2635FF00741002 /* FeedHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedHeaderView.swift; sourceTree = "<group>"; };
 		3B2D7BD52A277EC900741002 /* DismissViewDelegateProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissViewDelegateProtocol.swift; sourceTree = "<group>"; };
 		3B2D7BD72A2794BD00741002 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		3B2D7BDA2A28BDD200741002 /* DateFormater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormater.swift; sourceTree = "<group>"; };
+		3B2D7BDC2A28C28500741002 /* HorizontalNewsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalNewsCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +153,7 @@
 		3B2D7B872A1F8DA300741002 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				3B2D7BD92A28BDBF00741002 /* Extensions */,
 				3B2D7B962A1F9F0100741002 /* API */,
 				3B2D7B912A1F9AB700741002 /* Models */,
 				3B2D7B882A1F8DB300741002 /* Protocols */,
@@ -197,6 +202,7 @@
 				3B2D7BAC2A24E50400741002 /* CategoryScroll.swift */,
 				3B2D7BAE2A24F7E200741002 /* LanguageMenu.swift */,
 				3B2D7BBA2A2530BE00741002 /* TopView.swift */,
+				3B2D7BDC2A28C28500741002 /* HorizontalNewsCell.swift */,
 			);
 			path = UIElements;
 			sourceTree = "<group>";
@@ -284,6 +290,14 @@
 				3B2D7BD12A2635FF00741002 /* FeedHeaderView.swift */,
 			);
 			path = UIElements;
+			sourceTree = "<group>";
+		};
+		3B2D7BD92A28BDBF00741002 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				3B2D7BDA2A28BDD200741002 /* DateFormater.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -377,7 +391,9 @@
 				3B2D7BB72A25113600741002 /* DetailedViewController+Actions.swift in Sources */,
 				3B2D7BBB2A2530BE00741002 /* TopView.swift in Sources */,
 				3B2D7BA02A1FAE3400741002 /* Endpoint.swift in Sources */,
+				3B2D7BDB2A28BDD200741002 /* DateFormater.swift in Sources */,
 				3B2D7B952A1F9ED800741002 /* NewsError.swift in Sources */,
+				3B2D7BDD2A28C28500741002 /* HorizontalNewsCell.swift in Sources */,
 				3B2D7B732A1F8C8C00741002 /* MainViewController.swift in Sources */,
 				3B2D7B6F2A1F8C8C00741002 /* AppDelegate.swift in Sources */,
 				3B2D7BAF2A24F7E200741002 /* LanguageMenu.swift in Sources */,

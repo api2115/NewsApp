@@ -16,17 +16,17 @@ extension DetailedViewController {
     @objc func handleHeartIconTap() {
         if heartIcon.image == UIImage(systemName: "heart.fill") {
             if news != nil {
-                delegate?.passData(data: news!, tapCase: .removeFromFeed)
+                delegate?.passData(data: news!, tapCase: TapCase.removeFromFeed)
                 heartIcon.image = UIImage(systemName: "heart")
             } else {
-                delegate?.passData(data: feedNews!, tapCase: .removeFromFeed)
+                delegate?.passData(data: feedNews!, tapCase: TapCase.removeFromFeed)
                 heartIcon.removeFromSuperview()
             }
         } else {
             if news != nil {
-                delegate?.passData(data: news!, tapCase: .addToFeed)
+                delegate?.passData(data: news!, tapCase: TapCase.addToFeed)
             } else {
-                delegate?.passData(data: feedNews!, tapCase: .addToFeed)
+                delegate?.passData(data: feedNews!, tapCase: TapCase.addToFeed)
             }
             heartIcon.image = UIImage(systemName: "heart.fill")
         }

@@ -98,8 +98,6 @@ class TopNewsView: UIView {
             }
         }
         
-        
-        
     }
     
     
