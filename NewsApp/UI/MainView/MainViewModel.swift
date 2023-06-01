@@ -6,8 +6,9 @@
 //
 
 import Foundation
+import Combine
 
-class MainViewModel {
+class MainViewModel: ObservableObject {
     //MARK: - Output
     struct Output {
         var onNewsUpdated: (()->Void)?
@@ -17,7 +18,7 @@ class MainViewModel {
     //MARK: - Variables
     let service = APIService()
     var output: Output?
-    private(set) var news: [News] = [] {
+    @Published private(set) var news: [News] = [] {
         didSet {
             output?.onNewsUpdated?()
         }

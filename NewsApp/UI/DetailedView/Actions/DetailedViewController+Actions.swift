@@ -39,4 +39,8 @@ extension DetailedViewController {
         element.translatesAutoresizingMaskIntoConstraints = false
     }
     
+    func checkIfNewsInMyFeed(item: News) -> Bool {
+        return FeedManager.shared.getAllItems().contains { $0.title == item.title}
+    }
+    
 }

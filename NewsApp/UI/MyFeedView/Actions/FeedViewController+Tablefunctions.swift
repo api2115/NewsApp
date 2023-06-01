@@ -48,9 +48,10 @@ extension FeedViewController: UITableViewDelegate, UITableViewDataSource {
     
     //Cell data function
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let model = self.viewModel.feedNews.reversed()[indexPath.section]
+//        let model = self.viewModel.feedNews.reversed()[indexPath.section]
         let cell = tableView.dequeueReusableCell(withIdentifier: NewsCell.identifier, for: indexPath) as! NewsCell
-        cell.configure(with: model)
+//        cell.configure(with: model)
+        cell.bind(to: self.viewModel, index: self.viewModel.feedNews.count-indexPath.section-1)
         
         return cell
     }

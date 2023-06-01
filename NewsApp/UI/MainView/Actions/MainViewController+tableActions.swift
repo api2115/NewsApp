@@ -49,9 +49,11 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     
     //Cell data function
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let model = self.viewModel.news[indexPath.section+4]
+//        let model = self.viewModel.news[indexPath.section+4]
         let cell = tableView.dequeueReusableCell(withIdentifier: NewsCell.identifier, for: indexPath) as! NewsCell
-        cell.configure(with: model)
+//        cell.configure(with: model)
+        cell.bind(to: self.viewModel, index: indexPath.section+4)
+        
         
         return cell
     }

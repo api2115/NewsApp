@@ -50,6 +50,7 @@ class DetailedViewController: UIViewController {
         iv.tintColor = .red
         return iv
     }()
+    
     var news: News?
     //MARK: - Initializer for mainView
     init(_ news: News) {
@@ -71,13 +72,10 @@ class DetailedViewController: UIViewController {
     init(_ news: MyFeedNews) {
         self.feedNews = news
         let imageURL = URL(string: news.urlToImage ?? "https://static.remove.bg/sample-gallery/graphics/bird-thumbnail.jpg")
-        self.coverImage.sd_setImage(with: imageURL)
-        
+        coverImage.sd_setImage(with: imageURL)
         titleLabel.text = news.title
         contentLabel.text = news.content
-        
         super.init(nibName: nil, bundle: nil)
-        
         heartIcon.image = UIImage(systemName: "heart.fill")
         heartIcon.tintColor = .red
     }
@@ -92,10 +90,7 @@ class DetailedViewController: UIViewController {
 
         setUpUI()
         
-        backButton.addTarget(self, action: #selector(backButtonTap), for: .touchUpInside)
-        heartIcon.isUserInteractionEnabled = true
-        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleHeartIconTap))
-        heartIcon.addGestureRecognizer(gestureRecognizer)
+        setUpTargets()
     }
     
     //MARK: - SetUpFunctions
@@ -130,8 +125,12 @@ class DetailedViewController: UIViewController {
         ])
     }
     
-    private func checkIfNewsInMyFeed(item: News) -> Bool {
-        return FeedManager.shared.getAllItems().contains { $0.title == item.title}
+    private func setUpTargets() {
+        backButton.addTarget(self, action: #selector(backButtonTap), for: .touchUpInside)
+        heartIcon.isUserInteractionEnabled = true
+        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleHeartIconTap))
+        heartIcon.addGestureRecognizer(gestureRecognizer)
     }
+    
     
 }

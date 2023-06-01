@@ -8,6 +8,7 @@
 import UIKit
 
 extension FeedViewController: DataDelegateProtocol {
+    //MARK: - Protocol
     func passData(data: MyFeedNews, id: Int) {
         if id == 2 {
             viewModel.input?.addFeedNews(data)
@@ -15,7 +16,6 @@ extension FeedViewController: DataDelegateProtocol {
             viewModel.deleteFeedNews(news: data)
         }
     }
-    
     
     //MARK: - Button Functions
     @objc func backButtonTap() {

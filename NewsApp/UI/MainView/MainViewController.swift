@@ -33,6 +33,12 @@ class MainViewController: UIViewController {
     init(_ viewModel: MainViewModel = MainViewModel()){
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
+        topView.horizontalScrol.delegate = self
+        self.tableView.tableHeaderView = topView
+        self.tableView.addSubview(refreshControl)
+        refreshControl.tintColor = .red
     }
     
     required init?(coder: NSCoder) {
@@ -42,29 +48,11 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.tableView.delegate = self
-        self.tableView.dataSource = self
-        
-        topView.horizontalScrol.delegate = self
-        
         self.setUpUI()
         
-        self.tableView.tableHeaderView = topView
-        
-        self.tableView.addSubview(refreshControl)
-        refreshControl.tintColor = .red
-        refreshControl.addTarget(self, action: #selector(refreshData), for: .valueChanged)
-        
         self.setUpModelOutput()
-        
-        headerView.languageButton.addTarget(self, action: #selector(showLanguageMenu), for: .touchUpInside)
-        headerView.myFeedButton.addTarget(self, action: #selector(showMyFeed), for: .touchUpInside)
-        
-        
-        
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTapOutsideLangMenu(_:)))
-        tapGesture.cancelsTouchesInView = false
-        self.view.addGestureRecognizer(tapGesture)
+
+        self.setUpTargets()
 
     }
     
@@ -105,7 +93,7 @@ class MainViewController: UIViewController {
         ])
     }
 
-    func setUpModelOutput() {
+    private func setUpModelOutput() {
         self.viewModel.output = .init(
             onNewsUpdated: { [weak self] in
                 DispatchQueue.main.async {
@@ -138,6 +126,15 @@ class MainViewController: UIViewController {
                 }
             }
         )
+    }
+    
+    private func setUpTargets() {
+        refreshControl.addTarget(self, action: #selector(refreshData), for: .valueChanged)
+        headerView.languageButton.addTarget(self, action: #selector(showLanguageMenu), for: .touchUpInside)
+        headerView.myFeedButton.addTarget(self, action: #selector(showMyFeed), for: .touchUpInside)
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTapOutsideLangMenu(_:)))
+        tapGesture.cancelsTouchesInView = false
+        self.view.addGestureRecognizer(tapGesture)
     }
 
 }

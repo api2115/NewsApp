@@ -7,7 +7,7 @@
 
 import Foundation
 
-class FeedViewModel {
+class FeedViewModel: ObservableObject {
     
     //MARK: - Input
     struct Input {
@@ -23,7 +23,7 @@ class FeedViewModel {
     var output: Output?
     private(set) var input: Input?
     
-    private(set) var feedNews: [MyFeedNews] = [] {
+    @Published private(set) var feedNews: [MyFeedNews] = [] {
         didSet {
             output?.onNewsUpdated?()
         }
